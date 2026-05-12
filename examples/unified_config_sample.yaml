@@ -1,0 +1,15 @@
+{
+  "rubric": {
+    "version": "auraone-rubric-v1",
+    "criteria": [
+      {
+        "criterion_id": "quality",
+        "weight": 1.0
+      }
+    ]
+  },
+  "responses_source": "synthetic.jsonl",
+  "judge_config": {
+    "backend": "local"
+  }
+}
