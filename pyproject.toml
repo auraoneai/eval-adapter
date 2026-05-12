@@ -4,7 +4,7 @@
 
     [project]
     name = "eval-adapter"
-    version = "0.1.0"
+    version = "0.1.1"
     description = "Unified rubric and run adapter for common eval frameworks."
     readme = "README.md"
     requires-python = ">=3.10"
