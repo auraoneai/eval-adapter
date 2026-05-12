@@ -11,5 +11,14 @@
   "responses_source": "synthetic.jsonl",
   "judge_config": {
     "backend": "local"
-  }
+  },
+  "responses": [
+    {
+      "output_id": "synthetic-1",
+      "response": "Synthetic response used only for adapter normalization.",
+      "labels": {
+        "quality": 0.8
+      }
+    }
+  ]
 }

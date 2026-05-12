@@ -1,10 +1,8 @@
 from __future__ import annotations
-from eval_adapter.results.canonical import normalize
+from eval_adapter.runners.common import import_export, run_config
 
 def run(config: dict):
-    criteria = config.get("rubric", {}).get("criteria", [])
-    scores = [{"criterion_id": c.get("criterion_id"), "score": 1.0, "weight": c.get("weight", 1.0)} for c in criteria]
-    return normalize(__name__.split(".")[-1], {"scores": scores, "synthetic": True})
+    return run_config(__name__.split(".")[-1], config, "lm_eval_harness")
 
 def import_results(export: dict):
-    return normalize(__name__.split(".")[-1], export)
+    return import_export(__name__.split(".")[-1], export, "lm_eval_harness")

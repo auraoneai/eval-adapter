@@ -7,5 +7,10 @@
 | OpenAI Evals | yes | yes | yes | planned |
 | PromptFoo | yes | yes | yes | planned |
 | DeepEval | yes | yes | yes | planned |
-| LangSmith | import-only | yes | yes | planned |
-| Phoenix | import-only | yes | yes | planned |
+| LangSmith | synthetic normalization + import | yes | yes | planned |
+| Phoenix | synthetic normalization + import | yes | yes | planned |
+
+All runners emit the same canonical fields: `runner`, `item_count`, `scores`, and
+`metadata`. Per-score rows preserve `output_id`, `criterion_id`, raw `score`,
+`weight`, normalized `weighted_score`, and a `runner_native_key` that identifies the
+framework-specific mapping used during normalization.

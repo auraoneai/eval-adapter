@@ -1,0 +1,24 @@
+{
+  "langsmith": {
+    "feedback": [
+      {
+        "run_id": "synthetic-1",
+        "key": "quality",
+        "score": 0.8,
+        "weight": 1.0
+      }
+    ],
+    "synthetic": true
+  },
+  "phoenix": {
+    "traces": [
+      {
+        "trace_id": "synthetic-1",
+        "metric": "quality",
+        "score": 0.8,
+        "weight": 1.0
+      }
+    ],
+    "synthetic": true
+  }
+}
