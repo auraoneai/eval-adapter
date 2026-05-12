@@ -11,7 +11,7 @@
     license = "MIT"
     authors = [{ name = "AuraOne" }]
     classifiers = ["Development Status :: 3 - Alpha", "Programming Language :: Python :: 3.10", "Programming Language :: Python :: 3.11", "Programming Language :: Python :: 3.12"]
-    dependencies = ["rubric-spec>=0.1.0", "PyYAML>=6.0"]
+    dependencies = ["rubric-spec>=0.1.1", "PyYAML>=6.0"]
 
     [project.urls]
     Homepage = "https://auraone.ai/open"
