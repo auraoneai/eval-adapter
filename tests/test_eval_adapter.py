@@ -1,9 +1,11 @@
-from eval_adapter.runners import RUNNERS
 import importlib
 import json
 import subprocess
 import sys
 from pathlib import Path
+
+from eval_adapter.cli import load_config
+from eval_adapter.runners import RUNNERS
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -33,3 +35,13 @@ def test_cli_runner_all():
     payload = json.loads(proc.stdout)
     assert set(payload) == set(RUNNERS)
     assert payload["inspect_ai"]["scores"][0]["criterion_id"] == "quality"
+
+
+def test_load_config_accepts_real_yaml_and_json(tmp_path):
+    yaml_config = load_config(ROOT / "examples/unified_config_sample.yaml")
+    assert yaml_config["rubric"]["criteria"][0]["criterion_id"] == "quality"
+    assert yaml_config["responses"][0]["labels"]["quality"] == 0.8
+
+    json_path = tmp_path / "run.json"
+    json_path.write_text(json.dumps(yaml_config), encoding="utf-8")
+    assert load_config(json_path) == yaml_config

@@ -6,8 +6,7 @@
 
 ```bash
 pip install eval-adapter
-python -m json.tool examples/unified_config_sample.yaml > /tmp/run.json
-eval-adapter run --config /tmp/run.json --runner all
+eval-adapter run --config examples/unified_config_sample.yaml --runner all
 ```
 
 The runner modules normalize each framework shape into one `EvalRunResult` containing
