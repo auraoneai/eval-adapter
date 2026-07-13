@@ -1,29 +1,44 @@
 [build-system]
-    requires = ["setuptools>=68", "wheel"]
-    build-backend = "setuptools.build_meta"
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
 
-    [project]
-    name = "eval-adapter"
-    version = "0.1.1"
-    description = "Unified rubric and run adapter for common eval frameworks."
-    readme = "README.md"
-    requires-python = ">=3.10"
-    license = "MIT"
-    authors = [{ name = "AuraOne" }]
-    classifiers = ["Development Status :: 3 - Alpha", "Programming Language :: Python :: 3.10", "Programming Language :: Python :: 3.11", "Programming Language :: Python :: 3.12"]
-    dependencies = ["rubric-spec>=0.1.1", "PyYAML>=6.0"]
+[project]
+name = "eval-adapter"
+version = "0.1.2"
+description = "Export rubric-spec rubrics and normalize evaluation result shapes across common eval frameworks."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "AuraOne" }]
+keywords = ["llm-evaluation", "evals", "rubric", "inspect-ai", "promptfoo", "lm-eval-harness", "evaluation-adapter"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = ["rubric-spec>=0.1.1", "PyYAML>=6.0"]
 
-    [project.urls]
-    Homepage = "https://auraone.ai/open"
-    Source = "https://github.com/auraoneai/eval-adapter"
+[project.urls]
+Homepage = "https://github.com/auraoneai/eval-adapter"
+Documentation = "https://github.com/auraoneai/eval-adapter#readme"
+Repository = "https://github.com/auraoneai/eval-adapter.git"
+Issues = "https://github.com/auraoneai/eval-adapter/issues"
+Changelog = "https://github.com/auraoneai/eval-adapter/blob/main/CHANGELOG.md"
 
-    [project.scripts]
+[project.scripts]
 eval-adapter = "eval_adapter.cli:main"
 
-    [tool.setuptools.packages.find]
-    where = ["src"]
+[tool.setuptools.packages.find]
+where = ["src"]
 
-    [tool.pytest.ini_options]
-    addopts = "-q"
-    pythonpath = ["src"]
-    testpaths = ["tests"]
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -45,3 +45,28 @@ def test_load_config_accepts_real_yaml_and_json(tmp_path):
     json_path = tmp_path / "run.json"
     json_path.write_text(json.dumps(yaml_config), encoding="utf-8")
     assert load_config(json_path) == yaml_config
+
+
+def test_cli_export_targets(tmp_path):
+    for target in ["lm-eval-harness", "inspect", "openai-evals", "promptfoo"]:
+        proc = subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "eval_adapter.cli",
+                "export",
+                "--rubric",
+                str(ROOT.parent / "rubric-spec" / "examples" / "minimal_rubric.json"),
+                "--to",
+                target,
+                "--out",
+                str(tmp_path / target),
+            ],
+            text=True,
+            capture_output=True,
+            env={"PYTHONPATH": f"{ROOT / 'src'}:{ROOT.parent / 'rubric-spec' / 'src'}"},
+        )
+        assert proc.returncode == 0, proc.stderr + proc.stdout
+        payload = json.loads(proc.stdout)
+        assert payload["ok"] is True
+        assert payload["paths"]
