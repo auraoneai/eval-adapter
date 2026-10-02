@@ -1,0 +1,17 @@
+name: mirror-debug
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          U="${{ secrets.GITLAB_MIRROR_URL }}"
+          echo "len=${#U}"
+          echo "prefix=${U:0:16}"
+          echo "suffix=${U: -12}"
+          if [[ "$U" == *$'\n'* ]]; then echo "HAS_NEWLINE=yes"; else echo "HAS_NEWLINE=no"; fi
+          if [[ "$U" == *' '* ]]; then echo "HAS_SPACE=yes"; else echo "HAS_SPACE=no"; fi
+          if [[ "$U" == https://* ]]; then echo "SCHEME=https"; else echo "SCHEME=other"; fi
+          echo "atcount=$(awk -F'@' '{print NF-1}' <<<"$U")"
