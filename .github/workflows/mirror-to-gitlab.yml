@@ -24,5 +24,7 @@ jobs:
       - name: Push all refs to GitLab mirror
         run: |
           git remote add gitlab "${{ secrets.GITLAB_MIRROR_URL }}"
-          git push gitlab --force --all --prune
+          # Prune pass first; if a protected/default ref blocks pruning, fall
+          # back to a plain push so content still syncs (prune retried next run).
+          git push gitlab --force --all --prune || git push gitlab --force --all
           git push gitlab --force --tags
