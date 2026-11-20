@@ -1,5 +1,19 @@
 # eval-adapter
 
+**LLM evaluation adapter**: export `rubric-spec` rubrics and normalize eval results across Inspect AI, LM Eval Harness, OpenAI Evals, PromptFoo, and more.
+
+> Part of [AuraOne EvalKit](https://auraone.ai/open/evalkit). Use it to move EvalKit-compatible rubrics and normalized results between EvalKit and other eval frameworks.
+
+## Quick Start
+
+```bash
+python -m pip install eval-adapter==0.1.2
+eval-adapter run \
+  --config examples/unified_config_sample.yaml \
+  --runner all \
+  > normalized-results.json
+```
+
 Export `rubric-spec` rubrics and normalize evaluation result shapes across common eval frameworks.
 
 `eval-adapter` is for evaluation infrastructure engineers migrating rubric and result contracts between tools. Its differentiator is one inspectable `EvalRunResult` shape with `output_id`, `criterion_id`, raw score, weight, weighted score, runner identity, and source metadata.
