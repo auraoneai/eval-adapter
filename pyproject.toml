@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "eval-adapter"
 version = "0.1.2"
-description = "Export rubric-spec rubrics and normalize evaluation result shapes across common eval frameworks."
+description = "LLM evaluation adapter: export rubric-spec rubrics and normalize evaluation result shapes across common eval frameworks."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
@@ -26,7 +26,8 @@ classifiers = [
 dependencies = ["rubric-spec>=0.1.1", "PyYAML>=6.0"]
 
 [project.urls]
-Homepage = "https://github.com/auraoneai/eval-adapter"
+Homepage = "https://auraone.ai/open/evalkit"
+Source = "https://github.com/auraoneai/eval-adapter"
 Documentation = "https://github.com/auraoneai/eval-adapter#readme"
 Repository = "https://github.com/auraoneai/eval-adapter.git"
 Issues = "https://github.com/auraoneai/eval-adapter/issues"
